@@ -7,28 +7,37 @@ namespace FizzBuzz
   class FizzBuzz : IFizzBuzz
   {
     public FizzBuzz() { }
-    public void Calculate(int start, int end)
+    public IEnumerable<string> Calculate(int start, int end)
     {
       IEnumerable<int> range = Enumerable.Range(0, end);
+      IList<string> result;
       foreach (var i in range)
       {
+        string value = "";
         if (i % 3 != 0 && i % 5 != 0)
         {
-          Console.WriteLine(i);
+          value = i.ToString();
         }
         else if (i % 3 == 0)
         {
-          Console.WriteLine("Fizz")
-                }
+          value = "Fizz";
+        }
         else if (i % 5 == 0)
         {
-          Console.WriteLine("Buzz");
+          value = "Buzz";
         }
         else if (i % 3 == 0 && i % 5 == 0)
         {
-          Console.WriteLine("FizzBuzz");
+          value = "FizzBuzz";
         }
+        result.Add(value);
       }
+      return result;
+    }
+
+    public void Print(IEnumerable<string> fizzBuzz)
+    {
+      fizzBuzz.ToList().ForEach(num => Console.Write(num));
     }
   }
 }
