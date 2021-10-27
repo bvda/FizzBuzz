@@ -5,7 +5,7 @@
     static void Main(string[] args)
     {
       var fb = new FizzBuzz();
-      var result = fb.Calculate(100);
+      fb.Calculate(0, 100);
     }
   }
 }
