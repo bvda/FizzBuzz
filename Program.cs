@@ -1,12 +1,11 @@
-﻿using System;
-
-namespace FizzBuzz
+﻿namespace FizzBuzz
 {
-    class Program
+  class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+      var fb = new FizzBuzz();
+      var result = fb.Calculate(100);
     }
+  }
 }
