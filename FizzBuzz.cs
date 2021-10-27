@@ -16,7 +16,11 @@ namespace FizzBuzz
       foreach (var i in range)
       {
         string value = "";
-        if (i % fizz != 0 && i % buzz != 0)
+        if (i % fizz == 0 && i % buzz == 0)
+        {
+          value = "FizzBuzz";
+        }
+        else if (i % fizz != 0 && i % buzz != 0)
         {
           value = i.ToString();
         }
@@ -24,13 +28,9 @@ namespace FizzBuzz
         {
           value = "Fizz";
         }
-        else if (i % fizz == 0)
+        else if (i % buzz == 0)
         {
           value = "Buzz";
-        }
-        else if (i % fizz == 0 && i % buzz == 0)
-        {
-          value = "FizzBuzz";
         }
         result.Add(value);
       }
