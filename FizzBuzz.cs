@@ -8,6 +8,7 @@ namespace FizzBuzz
 {
   class FizzBuzz : IFizzBuzz
   {
+    readonly IList<string> result = new List<string>();
     public FizzBuzz() { }
     public IEnumerable<string> Calculate(int start, int end, int fizz = 3, int buzz = 5)
     {
