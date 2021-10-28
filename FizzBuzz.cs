@@ -6,11 +6,12 @@ namespace FizzBuzz
 {
   class FizzBuzz : IFizzBuzz
   {
+    IList<string> result;
     public FizzBuzz() { }
     public IEnumerable<string> Calculate(int start, int end)
     {
       IEnumerable<int> range = Enumerable.Range(0, end);
-      IList<string> result;
+      
       foreach (var i in range)
       {
         string value = "";
