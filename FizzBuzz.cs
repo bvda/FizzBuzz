@@ -1,3 +1,4 @@
+using System.Threading;
 using System;
 using System.IO;
 using System.Collections.Generic;
@@ -8,8 +9,15 @@ namespace FizzBuzz
 {
   class FizzBuzz : IFizzBuzz
   {
-    readonly IList<string> result = new List<string>();
-    public FizzBuzz() { }
+    private readonly AutoResetEvent _event_1;
+    private readonly AutoResetEvent _event_2;
+    private readonly ResultCollector _resultCollector;
+    public FizzBuzz(ResultCollector resultCollector, AutoResetEvent event_1, AutoResetEvent event_2) {
+      _event_1 = event_1;
+      _event_2 = event_2;
+      _resultCollector = resultCollector;
+    }
+
     public IEnumerable<string> Calculate(int start, int end, int fizz = 3, int buzz = 5)
     {
       IEnumerable<int> range = Enumerable.Range(0, end);
@@ -32,9 +40,14 @@ namespace FizzBuzz
         {
           value = "Buzz";
         }
-        result.Add(value);
+        _resultCollector.nextValue = value;
+        _event_2.Set();
+        _event_1.WaitOne();
       }
-      return result;
+      _resultCollector.Running = false;
+      _event_2.Set();
+      _event_1.WaitOne();
+      return _resultCollector.result;
     }
 
     public void Print(IEnumerable<string> fizzBuzz)
