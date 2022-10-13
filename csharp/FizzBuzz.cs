@@ -4,15 +4,13 @@ using System.Linq;
 
 namespace FizzBuzz
 {
-  class FizzBuzz : IFizzBuzz
+  class FizzBuzz
   {
-    IList<string> result;
+    List<string> result;
     public FizzBuzz() { }
     public IEnumerable<string> Calculate(int start, int end)
     {
-      IEnumerable<int> range = Enumerable.Range(0, end);
-      
-      foreach (var i in range)
+      for (int i = 0; i < end; i++)
       {
         string value = "";
         if (i % 3 != 0 && i % 5 != 0)
