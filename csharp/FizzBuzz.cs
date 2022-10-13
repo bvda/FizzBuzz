@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace FizzBuzz
 {
-  class FizzBuzz : IFizzBuzz
+  class FizzBuzz
   {
     readonly IList<string> result = new List<string>();
     public FizzBuzz()
@@ -13,9 +13,7 @@ namespace FizzBuzz
     }
     public IEnumerable<string> Calculate(int start, int end)
     {
-
-      IEnumerable<int> range = Enumerable.Range(0, end);
-      foreach (var i in range)
+      for (int i = 0; i < end; i++)
       {
         string value = "";
         if (i % 3 != 0 && i % 5 != 0)
@@ -34,9 +32,9 @@ namespace FizzBuzz
         {
           value = "FizzBuzz";
         }
-        using (var outFile = new StreamWriter("FizzBuzz.log", true))
+        using (var outFile = new StreamWriter("FizzBuzz.log", false))
         {
-          outFile.WriteLine(value);
+          outFile.Write(value);
         }
         result.Add(value);
       }
@@ -49,3 +47,5 @@ namespace FizzBuzz
     }
   }
 }
+
+// Hint: https://learn.microsoft.com/en-us/dotnet/api/system.io.streamwriter?view=net-6.0
