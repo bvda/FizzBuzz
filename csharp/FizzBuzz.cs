@@ -4,13 +4,12 @@ using System.Linq;
 
 namespace FizzBuzz
 {
-  class FizzBuzz : IFizzBuzz
+    class FizzBuzz
   {
     public FizzBuzz() { }
     public void Calculate(int start, int end)
     {
-      IEnumerable<int> range = Enumerable.Range(0, end);
-      foreach (var i in range)
+      for (var i = 0; i < end; i++)
       {
         if (i % 3 != 0 && i % 5 != 0)
         {
