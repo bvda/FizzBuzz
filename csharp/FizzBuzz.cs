@@ -6,14 +6,13 @@ using System.Text;
 
 namespace FizzBuzz
 {
-  class FizzBuzz : IFizzBuzz
+  class FizzBuzz
   {
     readonly IList<string> result = new List<string>();
     public FizzBuzz() { }
     public IEnumerable<string> Calculate(int start, int end, int fizz = 3, int buzz = 5)
     {
-      IEnumerable<int> range = Enumerable.Range(0, end);
-      foreach (var i in range)
+      for (int i = start; i < end; i++)
       {
         string value = "";
         if (i % fizz == 0 && i % buzz == 0)
