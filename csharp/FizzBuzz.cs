@@ -32,9 +32,9 @@ namespace FizzBuzz
         {
           value = "FizzBuzz";
         }
-        using (var outFile = new StreamWriter("FizzBuzz.log", true))
+        using (var outFile = new StreamWriter("FizzBuzz.log", false))
         {
-          outFile.WriteLine(value);
+          outFile.Write(value);
         }
         result.Add(value);
       }
@@ -47,3 +47,5 @@ namespace FizzBuzz
     }
   }
 }
+
+// Hint: https://learn.microsoft.com/en-us/dotnet/api/system.io.streamwriter?view=net-6.0
