@@ -6,11 +6,10 @@ namespace FizzBuzz
 {
   class FizzBuzz
   {
-    IList<string> result;
+    List<string> result;
     public FizzBuzz() { }
     public IEnumerable<string> Calculate(int start, int end)
     {
-      
       for (int i = 0; i < end; i++)
       {
         string value = "";
