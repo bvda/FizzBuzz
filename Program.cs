@@ -6,6 +6,7 @@
     {
       var fb = new FizzBuzz();
       fb.Calculate(100);
+      fb.Print();
     }
   }
 }
